@@ -1,0 +1,34 @@
+If the current version of BIOS doesn't find passwords for your PC
+(all vendors) and you want to help me to implement support for it,
+please do the following:
+
+1.
+Execute the BIOS utility with the "d" option.
+You'll get a file called c:\bios.dmp.
+
+2.
+There are eight possible states:
+1. no passwords, security option: setup
+2. no passwords, security option: system
+3. only superviser password, security option: setup
+4. only superviser password, security option: system
+5. only user password, security option: setup
+6. only user password, security option: system
+7. both passwords, security option: setup
+8. both passwords, security option: system
+Please produce each of these states once and save it using BIOS
+with the "s" option as 1.sav, 2.sav...
+
+3.
+Then write a short text file containing:
+- BIOS vendor   
+- BIOS version  
+- BIOS date     
+- The used passwords
+
+4.
+Put all the files in a ZIP archive.
+
+5.
+Send the ZIP archive as an email attachment to: 
+mbockelkamp@web.de

@@ -1,0 +1,63 @@
+Because I got a lot of mail during the last weeks I'm going to write
+a FAQ for my BIOS program. Please understand that it will start in a
+very small size.
+
+Q: How must I use the BIOS program?
+A: Just go to the Command Prompt and enter BIOS <RETURN>. It will then
+show you all available command line parameters with a short
+description.
+
+Q: I never used such crazy passwords like "AKAKALXZ" (AWARD Bios).
+A: In Award setup you may enter a password which is 8 characters long.
+This means you have over 2E+11 different possibilities (if you only
+use big characters). Award saves those passwords in an encrypted form
+in two bytes, which means there are only 65536 different possibilities.
+So, there is the same encrypted value for many different passwords.
+The Bios setup can only build the checksum of the enterd password and
+compare it to the saved. So it's alright if you enter a password which
+has the same encrypted value than the original password.
+
+Q: The program shows a wrong Bios vendor and totally wrong passwords.
+A: This means that your Bios vendor isn't yet implemented and so the
+program tries the algorithms for the most possible vendor. This is also
+the cause why the shown passwords are wrong. Please read the included
+file SUPPORT.TXT and follow the instructions if you want me to update
+the program for your Bios.
+
+Q: The program shows a wrong Bios version or wrong passwords.
+A: This means that your Bios version isn't yet implemented and so the
+program tries the algorithms for the most possible version. This is 
+also the cause why the shown passwords are wrong. Please read the 
+included file SUPPORT.TXT and follow the instructions if you want me to 
+update the program for your Bios.
+
+Q: The program shows 'Found unknown OS ($xx) y.y'.
+A: Your Operating System isn't yet implemented. Please send me an email
+containing the name and version of your OS and the $xx and y.y value
+shown by the program.
+
+Q: Why should I reboot using Int19?
+A: If you booted without loading a memory manager, you can reboot using
+Int19 option much faster than if you did a cold or warm reboot. This is
+useful especially if you booted in safe mode in order to change the 
+startup files.
+
+Q: Why should I erase the CMOS data?
+A: If you set a setup password so that you can't access the bios
+but have still access the system you have a big problem if you forget
+your password and BIOS doesn't find a usable password (especially 
+important for unsupported bios vendors), you can erase all the CMOS
+data. After that, your bios will load default settings at next boot.
+This means: no passwords are set any more.
+
+Q: What different states can be displayed for the RTC battery?
+A: There are only two possible states: Full and Empty. This is because 
+BIOS can only check the RTC registers which set a flag if in one of the
+clock update periods (about 32000 times per second) the battery power 
+was too low.
+
+Q: Why shouldn't I make a bios dump when memory managers are loaded?
+A: On somw PCs the BIOS is divided in two parts: The first contains procedures only needed while booting, the second contains all other procedures. So the first part of the BIOS segment can be used as conventional memory after booting. If you try to make a BIOS dump then, you get a dump file with some normal memory and the second part of the BIOS; the first part is missing. To prevent this, you should make such dumps in real mode, which means with no memory managers loaded which could already use that area.
+
+Q: Why can't I use the BIOS program under Win NT?
+A: Win NT uses a port permission map which doesn't allow user programs to access the necessary ports. A possible workaround would be a special driver but to install it you must have admin rights. But with admin rights, you might also boot normal dos from disk...

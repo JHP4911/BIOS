@@ -1,0 +1,10 @@
+BIOS can produce DOS error codes for batch processing:
+
+000 - Everyting OK
+128 - V: Identical
+129 - V: Not identical
+130 - D: PC isn't in Real Mode
+252 - OS uses bios emulation (Linux)
+253 - Error in commandline
+254 - Error in fileoperation
+255 - Function not supported
